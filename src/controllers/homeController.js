@@ -13,7 +13,7 @@ router.get("/catalog/men", (req, res) => {
 });
 
 router.get("/contacts", (req, res) => {
-    res.render("home/men");
+    res.render("home/contacts");
 });
 
 module.exports = router;
