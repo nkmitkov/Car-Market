@@ -9,5 +9,14 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
-  }
+  },
+  "name": "neat-fashion",
+  "version": "1.0.0",
+  "description": "Neat-Fashion is server-side rendering app.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "author": "Nikolay Mitkov",
+  "license": "ISC"
 }

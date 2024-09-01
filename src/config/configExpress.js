@@ -8,6 +8,6 @@ function configExpress(app) {
     app.use(cookieParser());
 
     return app;
-};
+}
 
 module.exports = configExpress;

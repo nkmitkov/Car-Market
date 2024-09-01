@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const router = require("express").Router;
+const router = require("express").Router();
 
 const configExpress = require("./config/configExpress");
 const configHandlebars = require("./config/configHandlebars");
@@ -11,12 +11,12 @@ const port = 3000;
 configExpress(app);
 configHandlebars(app);
 
-router.get("/", (req, res) => {
+app.get("/", (req, res) => {
     res.render("home/home");
 });
 
 const dbName = "neat-fashion";
-mongoose.connect(`mongodb://127.0.0.1:27017:/${dbName}`);
+mongoose.connect(`mongodb://127.0.0.1:27017/${dbName}`);
 
 try {
     mongoose.connection.on("connected", () => console.log("DB is connected"));
