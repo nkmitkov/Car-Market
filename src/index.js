@@ -1,9 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const router = require("express").Router();
 
 const configExpress = require("./config/configExpress");
 const configHandlebars = require("./config/configHandlebars");
+const routes = require("./routes");
 
 const app = express();
 const port = 3000;
@@ -11,9 +11,7 @@ const port = 3000;
 configExpress(app);
 configHandlebars(app);
 
-app.get("/", (req, res) => {
-    res.render("home/home");
-});
+app.use(routes);
 
 const dbName = "neat-fashion";
 mongoose.connect(`mongodb://127.0.0.1:27017/${dbName}`);
