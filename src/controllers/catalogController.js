@@ -1,7 +1,15 @@
 const router = require("express").Router();
 
-router.get("/women", (req, res) => {
-    res.render("home/women");
+const catalogService = require("../services/catalogService");
+
+router.get("/women", async (req, res) => {
+    try {
+        const products = await catalogService.getAllWomens().lean();
+
+        res.render("home/women", { products });
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 router.get("/men", (req, res) => {
