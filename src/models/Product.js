@@ -16,7 +16,7 @@ const productSchema = new mongoose.Schema({
     sex: {
         type: String,
         required: [true, "Sex is required"],
-        match: [/^male|female$/mg, "Sex must be only 'male' or 'female'"],
+        match: [/^men|women$/mg, "Sex must be only 'male' or 'female'"],
     },
     image: {
         type: String,

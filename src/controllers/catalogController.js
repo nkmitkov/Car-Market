@@ -12,8 +12,14 @@ router.get("/women", async (req, res) => {
     }
 });
 
-router.get("/men", (req, res) => {
-    res.render("home/men");
+router.get("/men", async (req, res) => {
+    try {
+        const products = await catalogService.getAllMens().lean();
+
+        res.render("home/men", { products });
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 module.exports = router;
