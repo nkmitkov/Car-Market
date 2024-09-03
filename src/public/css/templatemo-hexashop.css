@@ -2526,3 +2526,16 @@ responsive
         opacity: 0;
     }
 }
+
+button#buy {
+    cursor: pointer;
+    margin-top: 50px;
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: solid 3px black;
+    font-size: 20px;
+}
+
+button#buy:hover {
+    background-color: #d6d6d6;
+}
