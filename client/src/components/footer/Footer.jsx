@@ -27,19 +27,9 @@ export default function Footer() {
                         <h4>Useful Links</h4>
                         <ul>
                             <li><a href="/">Homepage</a></li>
-                            <li><a href="/about">About Us</a></li>
                             <li><a href="/contacts">Contact Us</a></li>
                         </ul>
                     </div>
-                    {/* {{!-- < div className="col-lg-3">
-                    <h4>Help &amp; Information</h4>
-                    <ul>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Tracking ID</a></li>
-                    </ul>
-                </div> --}} */}
                     <div className="col-lg-12">
                         <div className="under-footer">
                             <p>Copyright © 2024 NeatFashion Co., Ltd. All Rights Reserved.

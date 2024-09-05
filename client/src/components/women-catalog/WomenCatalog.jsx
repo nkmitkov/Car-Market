@@ -17,7 +17,29 @@ export default function WomenCatalog() {
                         </div>
                         <div className="col-lg-12" style={{ display: "flex", flexWrap: "wrap" }}>
 
-                            {/* {{> catalogListItem}} */}
+                            <div className="item" style={{ maxWidth: "370px" }}>
+                                <div className="thumb">
+                                    <div className="hover-content">
+                                        <ul>
+                                            <li><a href="single-product.html"><i className="fa fa-eye"></i></a></li>
+                                            <li><a href="single-product.html"><i className="fa fa-star"></i></a></li>
+                                            <li><a href="single-product.html"><i className="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <img src="/images/men-01.jpg" alt="" />
+                                </div>
+                                <div className="down-content">
+                                    <h4>Classic Spring</h4>
+                                    <span>$120.00</span>
+                                    <ul className="stars">
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
