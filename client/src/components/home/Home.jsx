@@ -1,4 +1,4 @@
-import MainBanner from "./MainBanner";
+import CustomBanner from "../banners/CustomBanner";
 import MenArea from "./MenArea";
 import TrendsArea from "./TrendsArea";
 import WomenArea from "./WomenArea";
@@ -7,7 +7,7 @@ export default function Home() {
 
     return (
         <>
-            <MainBanner />
+            <CustomBanner page="home" />
 
             <MenArea />
 

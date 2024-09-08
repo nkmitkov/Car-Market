@@ -1,10 +1,10 @@
-import DetailsBanner from "./DetailsBanner";
+import GeneralBanner from "../banners/GeneralBanner";
 
 export default function Details() {
 
     return (
         <>
-            <DetailsBanner />
+            <GeneralBanner title="productName" />
 
             <div className="contact-us">
                 <div className="container">

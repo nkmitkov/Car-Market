@@ -1,10 +1,10 @@
-import RegisterBanner from "./RegisterBanner";
+import GeneralBanner from "../banners/GeneralBanner";
 
 export default function Register() {
 
     return (
         <>
-            <RegisterBanner />
+            <GeneralBanner title="Register" />
 
             <div className="contact-us">
                 <div className="container">

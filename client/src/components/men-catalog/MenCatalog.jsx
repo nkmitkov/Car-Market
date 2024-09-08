@@ -1,10 +1,10 @@
-import MenMainBanner from "./MenMainBanner";
+import CustomBanner from "../banners/CustomBanner";
 
 export default function MenCatalog() {
 
     return (
         <>
-            <MenMainBanner />
+            <CustomBanner page="men" />
 
             <section className="our-team">
                 <div className="container">

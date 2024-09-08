@@ -1,10 +1,10 @@
-import WomenMainBanner from "./WomenMainBanner";
+import CustomBanner from "../banners/CustomBanner";
 
 export default function WomenCatalog() {
 
     return (
         <>
-            <WomenMainBanner />
+            <CustomBanner page="women" />
 
             <section className="our-team">
                 <div className="container">

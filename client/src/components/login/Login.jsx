@@ -1,10 +1,10 @@
-import LoginBanner from "./LoginBanner";
+import GeneralBanner from "../banners/GeneralBanner";
 
 export default function Login() {
 
     return (
         <>
-            <LoginBanner />
+            <GeneralBanner title="Login" />
 
             <div className="contact-us">
                 <div className="container">
