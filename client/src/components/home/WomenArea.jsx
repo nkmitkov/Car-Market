@@ -1,47 +1,103 @@
 export default function WomenArea() {
 
     return (
-        <section className="section" id="women" style={{ margin: "0 auto" }}>
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-6">
-                        <div className="section-heading">
-                            <h2>Women's Latest</h2>
-                            <span>Details to details is what makes <b>Neat Fashion</b> different from the other brands.</span>
-                        </div>
-                    </div>
-                </div>
+        <div style={{ margin: "50px auto 50px 200px" }}>
+            <div className="section-heading">
+                <h2>Women's Latest</h2>
+                <span>Details to details is what makes <b>Neat Fashion</b> different from the other brands.</span>
             </div>
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-12">
-
-                        {/* {{#each products}} */}
-                        <div className="col-lg-4" style={{ margin: "10px 0" }}>
-                            <div className="team-item">
-                                <div className="thumb">
-                                    <div className="hover-effect">
-                                        <div className="inner-content">
-                                            <ul>
-                                                <li><a href="/catalog/women/productId" style={{ width: "100px" }}>Details</a></li>
-                                            </ul>
+            <div className="main-banner" style={{ paddingTop: "60px" }}>
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-lg-6">
+                            <div className="right-content">
+                                <div className="row">
+                                    <div className="col-lg-6">
+                                        <div className="right-first-image">
+                                            <div className="thumb">
+                                                <div className="inner-content">
+                                                    <h4>productName</h4>
+                                                    <span>$ price</span>
+                                                </div>
+                                                <div className="hover-content">
+                                                    <div className="inner">
+                                                        <h4>productName</h4>
+                                                        <p>description</p>
+                                                        <div className="main-border-button">
+                                                            <a href="#">Details</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <img src="/images/baner-right-image-01.jpg" />
+                                            </div>
                                         </div>
                                     </div>
-                                    <img src="/images/women-01.jpg" alt="productName" style={{ width: "350px", height: "500px" }} />
-                                </div>
-                                <div className="down-content">
-                                    <h4 style={{ width: "350px", height: "90px" }}>productName</h4>
-                                    <h6>$ price</h6>
+                                    <div className="col-lg-6">
+                                        <div className="right-first-image">
+                                            <div className="thumb">
+                                                <div className="inner-content">
+                                                    <h4>Men</h4>
+                                                    <span>Best Clothes For Men</span>
+                                                </div>
+                                                <div className="hover-content">
+                                                    <div className="inner">
+                                                        <h4>Men</h4>
+                                                        <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                        <div className="main-border-button">
+                                                            <a href="#">Details</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <img src="/images/baner-right-image-02.jpg" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <div className="right-first-image">
+                                            <div className="thumb">
+                                                <div className="inner-content">
+                                                    <h4>Kids</h4>
+                                                    <span>Best Clothes For Kids</span>
+                                                </div>
+                                                <div className="hover-content">
+                                                    <div className="inner">
+                                                        <h4>Kids</h4>
+                                                        <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                        <div className="main-border-button">
+                                                            <a href="#">Details</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <img src="/images/baner-right-image-03.jpg" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <div className="right-first-image">
+                                            <div className="thumb">
+                                                <div className="inner-content">
+                                                    <h4>Accessories</h4>
+                                                    <span>Best Trend Accessories</span>
+                                                </div>
+                                                <div className="hover-content">
+                                                    <div className="inner">
+                                                        <h4>Accessories</h4>
+                                                        <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                        <div className="main-border-button">
+                                                            <a href="#">Details</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <img src="/images/baner-right-image-04.jpg" />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        {/* {{else}} */}
-                        <h4>No products yet.</h4>
-                        {/* {{/each}} */}
-
                     </div>
                 </div>
             </div>
-        </section >
+        </div>
     );
 };
