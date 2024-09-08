@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
 import CustomBanner from "../banners/CustomBanner";
 
 export default function WomenCatalog() {
+    const [womenProducts, setWomenProducts] = useState([]);
+
+    console.log(womenProducts);
+
+    useEffect(() => {
+        (async () => {
+            const response = await fetch("http://127.0.0.1:3000/catalog/women");
+
+            const result = await response.json();
+
+            setWomenProducts(state => result)
+        })()
+    }, []);
+
 
     return (
         <>
