@@ -4,9 +4,9 @@ const catalogService = require("../services/catalogService");
 
 router.get("/women", async (req, res) => {
     try {
-        const products = await catalogService.getAllWomens().lean();
+        const allWomenProducts = await catalogService.getAllWomens();
 
-        res.render("home/women", { products });
+        res.json(allWomenProducts);
     } catch (error) {
         console.log(error);
     }
@@ -16,9 +16,9 @@ router.get("/women/:productId", async (req, res) => {
     const productId = req.params.productId;
 
     try {
-        const product = await catalogService.getById(productId).lean();
+        const product = await catalogService.getById(productId);
 
-        res.render("home/details", { ...product });
+        res.json(product);
     } catch (error) {
         console.log(error);
     }
@@ -26,9 +26,9 @@ router.get("/women/:productId", async (req, res) => {
 
 router.get("/men", async (req, res) => {
     try {
-        const products = await catalogService.getAllMens().lean();
+        const allMenProducts = await catalogService.getAllMens();
 
-        res.render("home/men", { products });
+        res.json(allMenProducts);
     } catch (error) {
         console.log(error);
     }
@@ -38,9 +38,9 @@ router.get("/men/:productId", async (req, res) => {
     const productId = req.params.productId;
     
     try {
-        const product = await catalogService.getById(productId).lean();
+        const product = await catalogService.getById(productId);
 
-        res.render("home/details", { ...product });
+        res.json(product);
     } catch (error) {
         console.log(error);
     }

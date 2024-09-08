@@ -9,7 +9,7 @@ router.use("/catalog", catalogController);
 router.use("/auth", authController);
 
 router.all("*", (req, res) => {
-    res.render("home/home");
+    res.json({err: "Something's wrong"});
 });
 
 module.exports = router;
