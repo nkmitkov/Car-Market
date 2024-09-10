@@ -1,6 +1,23 @@
+import { useForm } from "../../hooks/useForm";
+
 import GeneralBanner from "../banners/GeneralBanner";
 
+const initialValues = {
+
+};
+
+const onSubmit = (values) => {
+    //todo: I have to validate the inputs and do error handling
+
+    try {
+        console.log(values);
+    } catch (error) {
+        console.log(error.message);
+    }
+};
+
 export default function Contacts() {
+    const { values, changeHandler, submitHandler } = useForm(initialValues, onSubmit);
 
     return (
         <>
@@ -21,22 +38,45 @@ export default function Contacts() {
                                 <h2>Say Hello. Don't Be Shy!</h2>
                                 <span>Details to details is what makes <b>Neat Fashion</b> different from the other brands.</span>
                             </div>
-                            <form id="contact" action="" method="post">
+                            <form id="contact" onSubmit={submitHandler}>
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <fieldset>
-                                            <input name="name" type="text" id="name" placeholder="Your name" required="" />
+                                            <input
+                                            name="name"
+                                            type="text"
+                                            id="name"
+                                            placeholder="Your name" 
+                                            required=""
+                                            value={values.name}
+                                            onChange={changeHandler}
+                                            />
                                         </fieldset>
                                     </div>
                                     <div className="col-lg-6">
                                         <fieldset>
-                                            <input name="email" type="text" id="email" placeholder="Your email" required="" />
+                                            <input
+                                            name="email"
+                                            type="text"
+                                            id="email"
+                                            placeholder="Your email" 
+                                            required=""
+                                            value={values.email}
+                                            onChange={changeHandler}
+                                            />
                                         </fieldset>
                                     </div>
                                     <div className="col-lg-12">
                                         <fieldset>
-                                            <textarea name="message" rows="6" id="message" placeholder="Your message"
-                                                required=""></textarea>
+                                            <textarea
+                                            name="message"
+                                            rows="6"
+                                            id="message"
+                                            placeholder="Your message"
+                                            required=""
+                                            value={values.message}
+                                            onChange={changeHandler}
+                                            ></textarea>
                                         </fieldset>
                                     </div>
                                     <div className="col-lg-12">
