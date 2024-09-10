@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import CustomBanner from "../banners/CustomBanner";
+import WomenListItem from "./WomenListItem";
 
 export default function WomenCatalog() {
     const [womenProducts, setWomenProducts] = useState([]);
-
-    console.log(womenProducts);
 
     useEffect(() => {
         (async () => {
@@ -30,33 +29,13 @@ export default function WomenCatalog() {
                                 <span>Details to details is what makes <b>Neat Fashion</b> different from the other brands.</span>
                             </div>
                         </div>
-                        <div className="col-lg-12" style={{ display: "flex", flexWrap: "wrap" }}>
 
-                            <div className="item" style={{ maxWidth: "370px" }}>
-                                <div className="thumb">
-                                    <div className="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i className="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i className="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i className="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="/images/men-01.jpg" alt="" />
-                                </div>
-                                <div className="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul className="stars">
-                                        <li><i className="fa fa-star"></i></li>
-                                        <li><i className="fa fa-star"></i></li>
-                                        <li><i className="fa fa-star"></i></li>
-                                        <li><i className="fa fa-star"></i></li>
-                                        <li><i className="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <ul style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
 
-                        </div>
+                            {womenProducts.map(product => (<WomenListItem key={product._id} {...product} />))}
+
+                        </ul>
+                        
                     </div>
                 </div>
             </section>
