@@ -1,20 +1,10 @@
-import { useEffect, useState } from "react";
+import { useFetch } from "../../hooks/useFetch";
+
 import CustomBanner from "../banners/CustomBanner";
-import WomenListItem from "./WomenListItem";
+import ProductListItem from "../partials/ProductListItem";
 
 export default function WomenCatalog() {
-    const [womenProducts, setWomenProducts] = useState([]);
-
-    useEffect(() => {
-        (async () => {
-            const response = await fetch("http://127.0.0.1:3000/catalog/women");
-
-            const result = await response.json();
-
-            setWomenProducts(state => result)
-        })()
-    }, []);
-
+    const { data: products, updateData } = useFetch("http://127.0.0.1:3000/catalog/women");
 
     return (
         <>
@@ -32,7 +22,7 @@ export default function WomenCatalog() {
 
                         <ul style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
 
-                            {womenProducts.map(product => (<WomenListItem key={product._id} {...product} />))}
+                            {products.map(product => (<ProductListItem key={product._id} {...product} />))}
 
                         </ul>
                         

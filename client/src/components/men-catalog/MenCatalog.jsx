@@ -1,6 +1,10 @@
+import { useFetch } from "../../hooks/useFetch";
+
 import CustomBanner from "../banners/CustomBanner";
+import ProductListItem from "../partials/ProductListItem";
 
 export default function MenCatalog() {
+    const { data: products, updateData } = useFetch("http://127.0.0.1:3000/catalog/men");
 
     return (
         <>
@@ -17,29 +21,11 @@ export default function MenCatalog() {
                         </div>
                         <div className="col-lg-12" style={{ display: "flex", flexWrap: "wrap" }}>
 
-                            <div className="item" style={{ maxWidth: "370px" }}>
-                                <div className="thumb">
-                                    <div className="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i className="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i className="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i className="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="/images/men-01.jpg" alt="" />
-                                </div>
-                                <div className="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul className="stars">
-                                        <li><i className="fa fa-star"></i></li>
-                                        <li><i className="fa fa-star"></i></li>
-                                        <li><i className="fa fa-star"></i></li>
-                                        <li><i className="fa fa-star"></i></li>
-                                        <li><i className="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <ul style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
+
+                                {products.map(product => (<ProductListItem key={product._id} {...product} />))}
+
+                            </ul>
 
                         </div>
                     </div>
