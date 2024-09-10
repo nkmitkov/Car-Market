@@ -7,7 +7,7 @@ export default function Home() {
 
     return (
         <>
-            <CustomBanner page="home" />
+            <CustomBanner page="home" showCatalogButtons={true} />
 
             <MenArea />
 

@@ -1,5 +1,6 @@
 export default function CustomBanner({
-    page
+    page,
+    showCatalogButtons
 }) {
     let titlePartOne = "";
     let titlePartTwo = "";
@@ -27,10 +28,14 @@ export default function CustomBanner({
                         <div className="inner-content" style={{ textAlign: "center" }}>
                             <h2>{titlePartOne}<i>{titlePartTwo}</i></h2>
                             <span style={{ fontSize: "20px" }}>Be awesome. Be neat.</span>
-                            <div className="main-border-button" style={{ marginTop: "20px" }}>
+
+                            {showCatalogButtons && (
+                                <div className="main-border-button" style={{ marginTop: "20px" }}>
                                 <a href="/catalog/women" style={{ marginRight: "10px" }}>Women</a>
                                 <a href="/catalog/men" style={{ marginLeft: "10px" }}>Men</a>
                             </div>
+                            )}
+
                         </div>
                     </div>
                 </div>
