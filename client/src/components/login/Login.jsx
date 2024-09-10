@@ -1,6 +1,24 @@
+import { useForm } from "../../hooks/useForm";
+
 import GeneralBanner from "../banners/GeneralBanner";
 
+const initialValues = {
+    email: "",
+    password: "",
+};
+
+const onSubmit = async (values) => {
+    //todo: I have to validate the inputs and do error handling
+
+    try {
+        console.log(values);
+    } catch (error) {
+        console.log(error.message);
+    }
+};
+
 export default function Login() {
+    const { values, changeHandler, submitHandler } = useForm(initialValues, onSubmit);
 
     return (
         <>
@@ -14,16 +32,31 @@ export default function Login() {
                                 <h2>Some text</h2>
                                 <span>Details to details is what makes <b>Neat Fashion</b> different from the other brands.</span>
                             </div>
-                            <form id="login" action="" method="post">
+                            <form id="login" onSubmit={submitHandler}>
                                 <div className="row" style={{ display: "block" }}>
                                     <div className="col-lg-6" style={{ margin: "10px 0" }}>
                                         <fieldset>
-                                            <input name="email" type="text" id="email" placeholder="Your email" required="" />
+                                            <input
+                                                name="email"
+                                                type="text"
+                                                id="email"
+                                                placeholder="Your email"
+                                                required=""
+                                                value={values.email}
+                                                onChange={changeHandler}
+                                            />
                                         </fieldset>
                                     </div>
                                     <div className="col-lg-6" style={{ margin: "10px 0" }}>
                                         <fieldset>
-                                            <input name="password" type="password" placeholder="Your password" required="" />
+                                            <input
+                                                name="password"
+                                                type="password"
+                                                placeholder="Your password"
+                                                required=""
+                                                value={values.password}
+                                                onChange={changeHandler}
+                                            />
                                         </fieldset>
                                     </div>
                                     <div className="col-lg-12" style={{ margin: "10px 0" }}>
