@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -10,7 +11,9 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, "Email is not valid"],
+        lowercase: true,
         match: [/^\w+@\w+\.\w+$/m, "Email is not valid"],
+        unique: true,
     },
     password: {
         type: String,
@@ -18,6 +21,18 @@ const userSchema = new mongoose.Schema({
         minLength: [6, "Password must be at least 6 characters"],
     },
 }, { timestamps: true });
+
+userSchema.pre("save", async function() {
+    const hash = await bcrypt.hash(this.password, 12);
+    this.password = hash;
+});
+
+userSchema.virtual("rePassword")
+    .set(function(value) {
+        if (value !== this.password) {
+            throw new Error("Passwords missmatch");
+        };
+    });
 
 const User = mongoose.model("User", userSchema);
 
