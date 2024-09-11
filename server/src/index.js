@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 
 const configExpress = require("./config/configExpress");
 const configHandlebars = require("./config/configHandlebars");
@@ -16,6 +18,8 @@ app.use((req, res, next) => {
     next();
 })
 
+app.use(cors());
+app.use(bodyParser.json());
 app.use(routes);
 
 const dbName = "neat-fashion";
