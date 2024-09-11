@@ -9,9 +9,14 @@ router.post("/login", async (req, res) => {
     try {
         const userInfo = await authService.login(userData);
 
-        res.send(JSON.stringify(userInfo)); 
+        const responseData = {
+            ...userInfo._doc,
+            accessToken: userInfo.accessToken,
+        };
+
+        res.send(JSON.stringify(responseData)); 
     } catch (error) {
-        res.status(402).end(error.message);
+        res.status(403).end(error.message);
     }
 });
 
@@ -22,8 +27,15 @@ router.post("/register", async (req, res) => {
     try {
         const userInfo = await authService.register(userData);
 
-        res.send(JSON.stringify(userInfo));
+        const responseData = {
+            ...userInfo._doc,
+            accessToken: userInfo.accessToken,
+        };
+        
+        res.send(JSON.stringify(responseData));
     } catch (error) {
+        // console.log(error);
+        
         res.status(403).end(error.message);
     }
 });

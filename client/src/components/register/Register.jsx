@@ -1,3 +1,4 @@
+import requester from "../../api/requester";
 import { useForm } from "../../hooks/useForm";
 
 import GeneralBanner from "../banners/GeneralBanner";
@@ -9,11 +10,13 @@ const initialValues = {
     rePassword: "",
 };
 
-const onSubmit = (values) => {
+const onSubmit = async (values) => {
     //todo: I have to validate the inputs and do error handling
 
     try {
-        console.log(values);
+        const result = await requester("POST", "http://127.0.0.1:3000/auth/register", values);
+
+        console.log(result);
     } catch (error) {
         console.log(error.message);
     }
