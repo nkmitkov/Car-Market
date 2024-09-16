@@ -19,7 +19,6 @@ export default function HomeListItem({
                     <div className="hover-content">
                         <div className="inner">
                             <h4>{title}</h4>
-                            <p>{description}</p>
                             <div className="main-border-button">
                                 <a href={`/catalog/men/${_id}`}>Details</a>
                             </div>

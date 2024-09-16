@@ -816,10 +816,14 @@ banner
 
 .main-banner .right-content .right-first-image .thumb .hover-content {
     position: absolute;
-    top: 15px;
+    /* top: 15px;
     right: 15px;
     left: 15px;
-    bottom: 15px;
+    bottom: 15px; */
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     text-align: center;
     background-color: rgba(42, 42, 42, .97);
     opacity: 0;
