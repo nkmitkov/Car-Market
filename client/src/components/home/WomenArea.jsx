@@ -1,4 +1,8 @@
+import { useFetch } from "../../hooks/useFetch";
+import HomeListItem from "../partials/HomeListItem";
+
 export default function WomenArea() {
+    const { data: products, updateData } = useFetch("http://127.0.0.1:3000/catalog/women");
 
     return (
         <div style={{ margin: "50px auto 50px 200px" }}>
@@ -12,7 +16,10 @@ export default function WomenArea() {
                         <div className="col-lg-6">
                             <div className="right-content">
                                 <div className="row">
-                                    <div className="col-lg-6">
+
+                                    {products.map(product => (<HomeListItem key={product._id} {...product} />))}
+
+                                    {/* <div className="col-lg-6">
                                         <div className="right-first-image">
                                             <div className="thumb">
                                                 <div className="inner-content">
@@ -91,7 +98,7 @@ export default function WomenArea() {
                                                 <img src="/images/baner-right-image-04.jpg" />
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
