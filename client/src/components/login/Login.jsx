@@ -1,5 +1,7 @@
-import requester from "../../api/requester";
+import { useState } from "react";
+
 import { useForm } from "../../hooks/useForm";
+import requester from "../../api/requester";
 
 import GeneralBanner from "../banners/GeneralBanner";
 
@@ -8,21 +10,28 @@ const initialValues = {
     password: "",
 };
 
-const onSubmit = async (values) => {
-    //todo: I have to validate the inputs and do error handling
-
-    try {
-        const result = await requester("POST", "http://127.0.0.1:3000/auth/login", values);
-
-        console.log(result);
-        // navigate page and show correct navigation and save token to local storage
-
-    } catch (error) {
-        console.log(error.message);
-    }
-};
-
 export default function Login() {
+    const [error, setError] = useState("");
+
+    const onSubmit = async (values) => {
+        //todo: I have to validate the inputs and do error handling
+
+        try {
+            const result = await requester("POST", "http://127.0.0.1:3000/auth/login", values);
+
+            console.log(result);
+            // navigate page and show correct navigation and save token to local storage
+
+        } catch (error) {
+            console.log(error.message);
+            setError(error.message);
+
+            setTimeout(() => {
+                setError("");
+            }, 2000)
+        }
+    };
+
     const { values, changeHandler, submitHandler } = useForm(initialValues, onSubmit);
 
     return (
@@ -39,6 +48,13 @@ export default function Login() {
                             </div>
                             <form id="login" onSubmit={submitHandler}>
                                 <div className="row" style={{ display: "block" }}>
+
+                                    {error &&
+                                    <div className="section-heading" style={{ margin: "10px 0" }}>
+                                        <span style={{ marginLeft: "15px", padding: "5px", color: "red", borderTop: "1px solid red", borderBottom: "1px solid red" }}>{error}</span>
+                                    </div>
+                                    }
+
                                     <div className="col-lg-6" style={{ margin: "10px 0" }}>
                                         <fieldset>
                                             <input
