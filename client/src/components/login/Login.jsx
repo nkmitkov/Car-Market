@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useForm } from "../../hooks/useForm";
-import requester from "../../api/requester";
-import * as localStrg from "../../utils/localStrg";
 
 import GeneralBanner from "../banners/GeneralBanner";
+import AuthContext from "../../contexts/authContext";
 
 const initialValues = {
     email: "",
@@ -15,35 +14,9 @@ const initialValues = {
 export default function Login() {
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const { onLoginSubmit } = useContext(AuthContext);
 
-    const onSubmit = async (values) => {
-        //todo: I have to validate the inputs and do error handling
-
-        try {
-            const result = await requester("POST", "http://127.0.0.1:3000/auth/login", values);
-
-            const auth = {
-                _id: result._id,
-                name: result.name,
-                email: result.email,
-                accessToken: result.accessToken,
-            };
-
-            localStrg.set("auth", auth);
-
-            navigate("/");
-
-        } catch (error) {
-            console.log(error.message);
-            setError(error.message);
-
-            setTimeout(() => {
-                setError("");
-            }, 2000)
-        }
-    };
-
-    const { values, changeHandler, submitHandler } = useForm(initialValues, onSubmit);
+    const { values, changeHandler, submitHandler } = useForm(initialValues, onLoginSubmit);
 
     return (
         <>

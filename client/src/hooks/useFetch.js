@@ -21,7 +21,7 @@ export function useFetch(url) {
             }
         })()
 
-        return () => AbortController.abort();
+        return () => abortController.abort();
     }, []);
 
     const updateData = (newData) => setData(state => newData);
