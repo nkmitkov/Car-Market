@@ -1,3 +1,4 @@
+import { useState } from "react";
 import requester from "../../api/requester";
 import { useForm } from "../../hooks/useForm";
 
@@ -10,21 +11,28 @@ const initialValues = {
     rePassword: "",
 };
 
-const onSubmit = async (values) => {
-    //todo: I have to validate the inputs and do error handling
-
-    try {
-        const result = await requester("POST", "http://127.0.0.1:3000/auth/register", values);
-
-        console.log(result);
-        // navigate page and show correct navigation and save token to local storage
-
-    } catch (error) {
-        console.log(error.message);
-    }
-};
-
 export default function Register() {
+    const [error, setError] = useState("");
+
+    const onSubmit = async (values) => {
+        //todo: I have to validate the inputs and do error handling
+
+        try {
+            const result = await requester("POST", "http://127.0.0.1:3000/auth/register", values);
+
+            console.log(result);
+            // navigate page and show correct navigation and save token to local storage
+
+        } catch (error) {
+            console.log(error.message);
+            setError(error.message);
+
+            setTimeout(() => {
+                setError("");
+            }, 2000)
+        }
+    };
+
     const { values, changeHandler, submitHandler } = useForm(initialValues, onSubmit);
 
     return (
@@ -41,53 +49,60 @@ export default function Register() {
                             </div>
                             <form id="register" onSubmit={submitHandler}>
                                 <div className="row" style={{ display: "block" }}>
+
+                                    {error &&
+                                        <div className="section-heading" style={{ margin: "10px 0" }}>
+                                            <span style={{ marginLeft: "15px", padding: "5px", color: "red", borderTop: "1px solid red", borderBottom: "1px solid red" }}>{error}</span>
+                                        </div>
+                                    }
+
                                     <div className="col-lg-6" style={{ margin: "10px 0" }}>
                                         <fieldset>
                                             <input
-                                            name="name"
-                                            type="text"
-                                            id="name"
-                                            placeholder="Your name"
-                                            required=""
-                                            value={values.name}
-                                            onChange={changeHandler}
+                                                name="name"
+                                                type="text"
+                                                id="name"
+                                                placeholder="Your name"
+                                                required=""
+                                                value={values.name}
+                                                onChange={changeHandler}
                                             />
                                         </fieldset>
                                     </div>
                                     <div className="col-lg-6" style={{ margin: "10px 0" }}>
                                         <fieldset>
                                             <input
-                                            name="email"
-                                            type="text"
-                                            id="email"
-                                            placeholder="Your email"
-                                            required=""
-                                            value={values.email}
-                                            onChange={changeHandler}
+                                                name="email"
+                                                type="text"
+                                                id="email"
+                                                placeholder="Your email"
+                                                required=""
+                                                value={values.email}
+                                                onChange={changeHandler}
                                             />
                                         </fieldset>
                                     </div>
                                     <div className="col-lg-6" style={{ margin: "10px 0" }}>
                                         <fieldset>
                                             <input
-                                            name="password"
-                                            type="password"
-                                            placeholder="Your password"
-                                            required=""
-                                            value={values.password}
-                                            onChange={changeHandler}
+                                                name="password"
+                                                type="password"
+                                                placeholder="Your password"
+                                                required=""
+                                                value={values.password}
+                                                onChange={changeHandler}
                                             />
                                         </fieldset>
                                     </div>
                                     <div className="col-lg-6" style={{ margin: "10px 0" }}>
                                         <fieldset>
                                             <input
-                                            name="rePassword"
-                                            type="password"
-                                            placeholder="Retype your password"
-                                            required=""
-                                            value={values.rePassword}
-                                            onChange={changeHandler}
+                                                name="rePassword"
+                                                type="password"
+                                                placeholder="Retype your password"
+                                                required=""
+                                                value={values.rePassword}
+                                                onChange={changeHandler}
                                             />
                                         </fieldset>
                                     </div>
