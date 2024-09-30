@@ -1,10 +1,7 @@
 export default function WomenListItem({
     _id,
-    id,
     title,
     price,
-    description,
-    sex,
     image,
 }) {
 
@@ -14,12 +11,12 @@ export default function WomenListItem({
                 <div className="thumb">
                     <div className="hover-content">
                         <ul>
-                            <li><a href="single-product.html"><i className="fa fa-eye"></i></a></li>
-                            <li><a href="single-product.html"><i className="fa fa-star"></i></a></li>
+                            <li><a href={`/catalog/men/${_id}`}><i className="fa fa-eye"></i></a></li>
+                            {/* <li><a href="single-product.html"><i className="fa fa-star"></i></a></li> */}
                             <li><a href="single-product.html"><i className="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
-                    <img src="/images/men-01.jpg" alt="" />
+                    <img src={image} alt={title} style={{ width: "200px", height: "250px" }}/>
                 </div>
                 <div className="down-content">
                     <h4>{title}</h4>

@@ -14,7 +14,12 @@ export default async function requester(method, url, data) {
     };
 
     const response = await fetch(url, options);
-    const result = response.json();
+
+    const result = await response.json();
+
+    if (response.status !== 200) {
+        throw new Error(result);
+    }
 
     return result;
 };

@@ -17,6 +17,8 @@ const onSubmit = async (values) => {
         const result = await requester("POST", "http://127.0.0.1:3000/auth/register", values);
 
         console.log(result);
+        // navigate page and show correct navigation and save token to local storage
+
     } catch (error) {
         console.log(error.message);
     }

@@ -1,10 +1,9 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { useFetch } from "../../hooks/useFetch";
 import GeneralBanner from "../banners/GeneralBanner";
 
 export default function Details() {
-    // const { productId } = useParams();
     const { pathname } = useLocation();
     const { data: product, updateData} = useFetch(`http://127.0.0.1:3000${pathname}`);
 

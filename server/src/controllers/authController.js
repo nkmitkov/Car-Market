@@ -4,8 +4,8 @@ const authService = require("../services/authService");
 
 router.post("/login", async (req, res) => {
     const userData = req.body;
+    //todo: validate data
 
-    // validate data
     try {
         const userInfo = await authService.login(userData);
 
@@ -16,14 +16,15 @@ router.post("/login", async (req, res) => {
 
         res.send(JSON.stringify(responseData)); 
     } catch (error) {
-        res.status(403).end(error.message);
+        console.log(error.message)
+        res.status(403).end(JSON.stringify(error.message));
     }
 });
 
 router.post("/register", async (req, res) => {
     const userData = req.body;
+    //todo: validate data
 
-    // validate data
     try {
         const userInfo = await authService.register(userData);
 
@@ -36,7 +37,7 @@ router.post("/register", async (req, res) => {
     } catch (error) {
         // console.log(error);
         
-        res.status(403).end(error.message);
+        res.status(403).end(JSON.stringify(error.message));
     }
 });
 
