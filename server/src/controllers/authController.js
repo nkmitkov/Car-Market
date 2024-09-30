@@ -14,9 +14,10 @@ router.post("/login", async (req, res) => {
             accessToken: userInfo.accessToken,
         };
 
+        delete responseData.password
+
         res.send(JSON.stringify(responseData)); 
     } catch (error) {
-        console.log(error.message)
         res.status(403).end(JSON.stringify(error.message));
     }
 });
@@ -32,11 +33,11 @@ router.post("/register", async (req, res) => {
             ...userInfo._doc,
             accessToken: userInfo.accessToken,
         };
+
+        delete responseData.password
         
         res.send(JSON.stringify(responseData));
     } catch (error) {
-        // console.log(error);
-        
         res.status(403).end(JSON.stringify(error.message));
     }
 });

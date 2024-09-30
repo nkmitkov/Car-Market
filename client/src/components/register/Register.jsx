@@ -1,6 +1,9 @@
 import { useState } from "react";
-import requester from "../../api/requester";
+import { useNavigate } from "react-router-dom";
+
 import { useForm } from "../../hooks/useForm";
+import requester from "../../api/requester";
+import * as localStrg from "../../utils/localStrg";
 
 import GeneralBanner from "../banners/GeneralBanner";
 
@@ -13,6 +16,7 @@ const initialValues = {
 
 export default function Register() {
     const [error, setError] = useState("");
+    const navigate = useNavigate();
 
     const onSubmit = async (values) => {
         //todo: I have to validate the inputs and do error handling
@@ -20,9 +24,16 @@ export default function Register() {
         try {
             const result = await requester("POST", "http://127.0.0.1:3000/auth/register", values);
 
-            console.log(result);
-            // navigate page and show correct navigation and save token to local storage
+            const auth = {
+                _id: result._id,
+                name: result.name,
+                email: result.email,
+                accessToken: result.accessToken,
+            };
 
+            localStrg.set("auth", auth);
+
+            navigate("/");
         } catch (error) {
             console.log(error.message);
             setError(error.message);
